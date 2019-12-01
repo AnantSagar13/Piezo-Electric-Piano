@@ -1,0 +1,43 @@
+#include "pitches.h"
+int analogpin[6]={A0,A1,A2,A3,A4,A5};
+int buzpin=8;
+int threshold=20;
+void setup()
+{
+Serial.begin(9600);
+pinMode(8,OUTPUT);
+}
+void loop()
+{
+if(analogRead(analogpin[0])>threshold)
+{
+Serial.println("A0");
+tone(8, NOTE_B4,1000/4);
+}
+if (analogRead(analogpin[1])>threshold)
+{
+Serial.println("A1");
+tone(8, NOTE_D4,1000/4);
+digitalWrite(8,HIGH);
+}
+if (analogRead(analogpin[2])>threshold)
+{
+Serial.println("A2");
+tone(8, NOTE_C4,1000/4);
+}
+if (analogRead(analogpin[3])>threshold)
+{
+Serial.println("A3");
+tone(8, NOTE_G4,1000/4);
+}
+if (analogRead(analogpin[4])>threshold)
+{
+Serial.println("A4");
+tone(8, NOTE_G3,1000/4);
+}
+if (analogRead(analogpin[5])>threshold)
+{
+Serial.println("A5");
+tone(8, NOTE_D3,1000/4);
+}
+}
